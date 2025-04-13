@@ -8,15 +8,20 @@ variable "targets" {
       {
         target_type  = string
         capabilities = optional(list(string), [])
+        cspa         = optional(
+          object(
+            {
+              name    = string
+              subnets = object(
+                {
+                  containerSubnetId = string
+                  relaySubnetId     = string
+                }
+              )
+            }
+          ), null
+        )
       }
     )
   )
 }
-
-#
-# variable "target_id" {
-#   type = string
-# }
-# variable "target_type" {
-#   type = string
-# }
