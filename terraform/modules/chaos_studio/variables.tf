@@ -7,6 +7,7 @@ variable "targets" {
     object(
       {
         target_type  = string
+        target_id    = string
         capabilities = optional(list(string), [])
         cspa         = optional(
           object(

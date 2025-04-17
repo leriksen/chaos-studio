@@ -15,7 +15,8 @@ module "chaos_studio" {
   location = azurerm_resource_group.rg.location
 
   targets = {
-      (azurerm_network_security_group.nsg.id) = {
+      (azurerm_network_security_group.nsg.name) = {
+        target_id = azurerm_network_security_group.nsg.id
         target_type = "Microsoft-NetworkSecurityGroup"
         capabilities = [
           "SecurityRule-1.1",
@@ -29,7 +30,8 @@ module "chaos_studio" {
           }
         }
       }
-    (azurerm_key_vault.kv.id) = {
+    (azurerm_key_vault.kv.name) = {
+      target_id   = azurerm_key_vault.kv.id
       target_type = "Microsoft-KeyVault"
       capabilities = [
         "DenyAccess-1.0",

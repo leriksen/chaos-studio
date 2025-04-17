@@ -5,6 +5,8 @@ resource "azurerm_key_vault" "kv" {
   sku_name                      = "premium"
   tenant_id                     = data.azurerm_client_config.current.tenant_id
   public_network_access_enabled = false
+  purge_protection_enabled      = false
+  enable_rbac_authorization     = true
 }
 
 resource "azurerm_private_endpoint" "pe" {
