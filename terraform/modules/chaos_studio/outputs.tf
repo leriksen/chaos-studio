@@ -2,10 +2,14 @@ output "target_capabilities" {
   value = local.target_capabilties
 }
 
-output "targets" {
-  value = var.targets
+output "service_targets" {
+  value = var.service_targets
 }
 
-output "targets_output" {
+output "target_output" {
   value = azapi_resource.register_target
+}
+
+output "capability_output" {
+  value = azapi_resource.register_capability
 }

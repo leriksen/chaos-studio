@@ -16,7 +16,7 @@ locals {
 }
 
 resource "azapi_resource" "register_target" {
-  for_each                = var.targets
+  for_each                = var.service_targets
   type                    = "Microsoft.Chaos/targets@2024-01-01"
   name                    = each.value.target_type
   location                = var.location
@@ -31,17 +31,6 @@ resource "azapi_resource" "register_target" {
   } : {
     properties = {}
   }
-}
-
-locals {
-  target_capabilties = flatten(
-    [
-      for target_name, target_details in var.targets : [
-        for capability in target_details.capabilities :
-          format("%s::%s", target_name, capability)
-      ]
-    ]
-  )
 }
 
 resource "azapi_resource" "register_capability" {

@@ -14,7 +14,7 @@ module "chaos_studio" {
 
   location = azurerm_resource_group.rg.location
 
-  targets = {
+  service_targets = {
       (azurerm_network_security_group.nsg.name) = {
         target_id = azurerm_network_security_group.nsg.id
         target_type = "Microsoft-NetworkSecurityGroup"

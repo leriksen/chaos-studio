@@ -2,7 +2,7 @@ variable "location" {
   type = string
 }
 
-variable "targets" {
+variable "service_targets" {
   type = map(
     object(
       {
