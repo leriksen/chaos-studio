@@ -11,10 +11,6 @@ terraform {
   }
 }
 
-locals {
-  no_properties = {}
-}
-
 resource "azapi_resource" "register_target" {
   for_each                = var.service_targets
   type                    = "Microsoft.Chaos/targets@2024-01-01"

@@ -24,4 +24,7 @@ resource "azurerm_linux_virtual_machine" "vm01" {
     sku       = "22_04-lts"
     version   = "latest"
   }
+
+  priority        = "Spot"
+  eviction_policy = "Delete"
 }
