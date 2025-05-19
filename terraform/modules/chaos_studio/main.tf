@@ -22,7 +22,7 @@ resource "azapi_resource" "register_target" {
   ignore_casing           = true
   body                    = each.value.cspa != null ? {
     properties = {
-      subnets = each.value.cspa.subnets
+      subnets = each.value.cspa
     }
   } : {
     properties = {}

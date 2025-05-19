@@ -12,13 +12,8 @@ variable "service_targets" {
         cspa         = optional(
           object(
             {
-              name    = string
-              subnets = object(
-                {
-                  containerSubnetId = string
-                  relaySubnetId     = string
-                }
-              )
+              containerSubnetId = string
+              relaySubnetId     = string
             }
           ), null
         )

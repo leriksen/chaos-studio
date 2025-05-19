@@ -23,13 +23,6 @@ module "chaos_studio" {
         "SecurityRule-1.1",
         "SecurityRule-1.0",
       ]
-      cspa = {
-        name = azurerm_network_security_group.nsg.name
-        subnets = {
-          containerSubnetId = azurerm_subnet.aci.id
-          relaySubnetId     = azurerm_subnet.ar.id
-        }
-      }
     }
     (azurerm_key_vault.kv.name) = {
       target_id   = azurerm_key_vault.kv.id
@@ -40,6 +33,10 @@ module "chaos_studio" {
         "IncrementCertificateVersion-1.0",
         "UpdateCertificatePolicy-1.0"
       ]
+      cspa = {
+        containerSubnetId = azurerm_subnet.aci.id
+        relaySubnetId     = azurerm_subnet.ar.id
+      }
     }
     (azurerm_linux_virtual_machine.vm01.name) = {
       target_id   = azurerm_linux_virtual_machine.vm01.id

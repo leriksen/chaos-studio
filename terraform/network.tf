@@ -19,7 +19,7 @@ resource azurerm_subnet "pe" {
   virtual_network_name = azurerm_virtual_network.vnet.name
 }
 
-# for PE support in ACXS - inject Azure Container Instance
+# for PE support in CSPA - inject Azure Container Instance
 resource azurerm_subnet "aci" {
   address_prefixes     = [cidrsubnet(tolist(azurerm_virtual_network.vnet.address_space)[0], 8, 2)]
   name                 = format("%s-aci01", azurerm_virtual_network.vnet.name)
@@ -38,7 +38,7 @@ resource azurerm_subnet "aci" {
   }
 }
 
-# for PE support in ACXS - inject Azure Relay
+# for PE support in CSPA - inject Azure Relay
 resource azurerm_subnet "ar" {
   address_prefixes     = [cidrsubnet(tolist(azurerm_virtual_network.vnet.address_space)[0], 8, 3)]
   name                 = format("%s-ar01", azurerm_virtual_network.vnet.name)
